@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<h1>Hello {{ controller_name }}!</h1>
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-info" role="alert">
+            This friendly message is coming from:
+            <ul>
+                <li>Your controller at <code><a href="{{ 'src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code></li>
+                <li>Your template at <code><a href="{{ 'templates/blog/list.html.twig'|file_link(0) }}">templates/blog/list.html.twig</a></code></li>
+            </ul>
+        </div>
+        <p><a href="{{ path('blog_show', {'slug': 'test'}) }}">Show</a></p>
+    </div>
+</div>
+{% endblock %}

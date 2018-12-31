@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    <h1>Hello {{ controller_name }}!</h1>
+    <div class="card">
+        <div class="card-body">
+            This friendly message is coming from:
+            <ul>
+                <li>Your controller at <code><a href="{{ 'src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
+                <li>Your template at <code><a href="{{ 'templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card mt-2">
+        <div class="card-body">
+        {% for i in 1..10 %}
+            <div class="{{ cycle(['even', 'odd'], i) }}">
+                <p>Test {{i}}</p>
+            </div>
+        {% endfor %}
+        </div>   
+    </div>
+{% endblock %}
