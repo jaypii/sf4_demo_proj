@@ -14,10 +14,9 @@ class ProductController extends AbstractController
      */
     public function index()
     {
-        //$minPrice = 20;
         $products = $this->getDoctrine()
-            ->getRepository(Product::class);
-            //->findAllGreaterThanPrice($minPrice);
+            ->getRepository(Product::class)
+            ->findAll();
 
         //return new Response('Saved new product with id '.$product->getId());
         return $this->render('product/index.html.twig', [

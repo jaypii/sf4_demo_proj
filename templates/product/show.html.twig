@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Product</h1>
-    <div class="card">
+    <div class="card mb-2">
         <div class="card-body">
             Product: {{ product.name }}<br>
             Price: {{ product.price }}<br>
@@ -12,4 +12,5 @@
             {{product.description}}
         </div>
     </div>
+    <a class="btn btn-primary" href="{{ path('product') }}" role="button">Back</a>
 {% endblock %}
