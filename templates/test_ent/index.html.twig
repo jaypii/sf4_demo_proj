@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TestEnt index{% endblock %}
+
+{% block body %}
+    <h1>Test CRUD List</h1>
+    <div class="card p-2">
+        <a href="{{ path('test_ent_new') }}" class="btn btn-primary w-25" role="button">Create new</a>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for test_ent in test_ents %}
+                    <tr>
+                        <td>{{ test_ent.id }}</td>
+                        <td>{{ test_ent.name }}</td>
+                        <td>{{ test_ent.email }}</td>
+                        <td>{{ test_ent.message }}</td>
+                        <td>
+                            <a href="{{ path('test_ent_show', {'id': test_ent.id}) }}">show</a>
+                            <a href="{{ path('test_ent_edit', {'id': test_ent.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
