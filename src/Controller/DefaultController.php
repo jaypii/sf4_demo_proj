@@ -21,4 +21,24 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+
+    /**
+     * @Route("/new", name="new")
+     */
+    public function new(Request $request) {
+
+        $defaults = [
+            'dueDate' => new \DateTime('tomorrow'),
+        ];
+
+        $form = $this->createFormBuilder($defaults)
+            ->add('task', TextType::class)
+            ->add('dueDate', DateType::class)
+            ->getForm();
+
+        return $this->render('default/new.html.twig', [
+            'form' => $form->createView(),
+            'controller_name' => 'DefaultController',
+        ]);
+    }
 }

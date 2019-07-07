@@ -1,4 +1,14 @@
-{# templates/default/new.html.twig #}
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    <div class="card bg-light">
+        <div class="card-body">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit"/>
+        {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
