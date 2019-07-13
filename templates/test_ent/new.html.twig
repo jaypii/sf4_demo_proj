@@ -4,6 +4,8 @@
 
 {% block body %}
     <h1>Create new entry</h1>
+    <a href="{{ path('test_ent_index') }}" class="btn btn-primary" role="button">Back to list</a>
+    <div class="card bg-light p-2 mt-2">
     <div class="row">
         <div class="col">
             {{ include('test_ent/_form.html.twig') }}
@@ -12,5 +14,5 @@
             &nbsp;
         </div>
     </div>
-    <a href="{{ path('test_ent_index') }}" class="btn btn-primary" role="button">Back to list</a>
+    </div>
 {% endblock %}
