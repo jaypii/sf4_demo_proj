@@ -12,7 +12,7 @@ use App\Entity\Task;
 
 class TaskController extends AbstractController
 {
-     /**
+    /**
      * @Route("/tasks", name="tasks")
      */
     public function index()
@@ -27,12 +27,11 @@ class TaskController extends AbstractController
         ]);
     }
 
-     /**
+    /**
      * @Route("/tasks/new", name="task_form")
      */
     public function new(Request $request)
     {
-        // creates a task and gives it some dummy data for this example
         $task = new Task();
 
         $form = $this->createForm(TaskType::class, $task);
@@ -55,7 +54,6 @@ class TaskController extends AbstractController
 
         return $this->render('task/new.html.twig', [
             'form' => $form->createView(),
-            'task' => $task,
         ]);
     }
 }

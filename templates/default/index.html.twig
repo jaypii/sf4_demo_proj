@@ -1,25 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Hello {{ controller_name }}!</h1>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome</h1>
+    </div>
+
     <div class="card">
+        <h5 class="card-header">Featured</h5>
         <div class="card-body">
-            This friendly message is coming from:
-            <ul>
-                <li>Your controller at <code><a href="{{ 'src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-                <li>Your template at <code><a href="{{ 'templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-            </ul>
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         </div>
     </div>
-    <div class="card mt-2">
-        <div class="card-body">
-        {% for i in 1..10 %}
-            <div class="{{ cycle(['even', 'odd'], i) }}">
-                <p>Test {{i}}</p>
+    <div class="row">
+        <div class="col">
+            <div class="card mt-2">
+                <h5 class="card-header">Twig: Generated List</h5>
+                <div class="card-body">
+                {% for i in 1..10 %}
+                    <div class="{{ cycle(['even', 'odd'], i) }}">
+                        Test {{i}}
+                    </div>
+                {% endfor %}
+                </div>
+            </div>   
+        </div>
+        <div class="col">
+            <div class="card mt-2">
+                <img src="img/symfony_black_03.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
             </div>
-        {% endfor %}
-        </div>   
+        </div>
+        <div class="col">
+            <div class="card mt-2">
+                <div class="card-body">
+                    {# read and display all flash messages #}
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-info">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>   
+        </div>
+        <div class="col">&nbsp;</div>
     </div>
 {% endblock %}

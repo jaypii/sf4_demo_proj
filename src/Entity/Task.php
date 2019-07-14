@@ -26,29 +26,29 @@ class Task
      */
     private $dueDate;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getTask(): ?string
+    public function getTask()
     {
         return $this->task;
     }
 
-    public function setTask(string $task): self
+    public function setTask(string $task)
     {
         $this->task = $task;
 
         return $this;
     }
 
-    public function getDueDate(): ?\DateTimeInterface
+    public function getDueDate()
     {
         return $this->dueDate;
     }
 
-    public function setDueDate(\DateTimeInterface $dueDate): self
+    public function setDueDate(\DateTimeInterface $dueDate)
     {
         $this->dueDate = $dueDate;
 

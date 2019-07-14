@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use App\Service\MessageGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,28 +18,6 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="new")
-     */
-    public function new(Request $request) {
-
-        $defaults = [
-            'dueDate' => new \DateTime('tomorrow'),
-        ];
-
-        $form = $this->createFormBuilder($defaults)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->getForm();
-
-        return $this->render('default/new.html.twig', [
-            'form' => $form->createView(),
-            'controller_name' => 'DefaultController',
-        ]);
+        return $this->render('default/index.html.twig');
     }
 }

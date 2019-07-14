@@ -26,10 +26,9 @@ class BlogController extends AbstractController
      *
      * @Route("/blog/{slug}", name="blog_show")
      */
-    public function show($slug)
+    public function show($slug='test')
     {
         {
-            $slug = 'test';
             return $this->render('blog/show.html.twig', [
                 'controller_name' => 'BlogController',
             ]);

@@ -1,16 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Blog: Entry{% endblock %}
 
 {% block body %}
-<h1>Hello {{ controller_name }}!</h1>
+<h1>Blog entry</h1>
 <div class="card">
     <div class="card-body">
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code><a href="{{ 'src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code></li>
-            <li>Your template at <code><a href="{{ 'templates/blog/show.html.twig'|file_link(0) }}">templates/blog/show.html.twig</a></code></li>
-        </ul>
+        
         <p><a href="{{ path('blog_list') }}">Back</a></p>
     </div>
 </div>

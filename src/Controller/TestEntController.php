@@ -18,7 +18,7 @@ class TestEntController extends AbstractController
     /**
      * @Route("/crud", name="test_ent_index", methods={"GET"})
      */
-    public function index(TestEntRepository $testEntRepository): Response
+    public function index(TestEntRepository $testEntRepository)
     {
         return $this->render('test_ent/index.html.twig', [
             'test_ents' => $testEntRepository->findAll(),
@@ -28,7 +28,7 @@ class TestEntController extends AbstractController
     /**
      * @Route("/crud/new", name="test_ent_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request)
     {
         $testEnt = new TestEnt();
         $form = $this->createForm(TestEntType::class, $testEnt);
@@ -51,7 +51,7 @@ class TestEntController extends AbstractController
     /**
      * @Route("/crud/{id}", name="test_ent_show", methods={"GET"})
      */
-    public function show(TestEnt $testEnt): Response
+    public function show(TestEnt $testEnt)
     {
         return $this->render('test_ent/show.html.twig', [
             'test_ent' => $testEnt,
@@ -61,7 +61,7 @@ class TestEntController extends AbstractController
     /**
      * @Route("/crud/{id}/edit", name="test_ent_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, TestEnt $testEnt): Response
+    public function edit(Request $request, TestEnt $testEnt)
     {
         $form = $this->createForm(TestEntType::class, $testEnt);
         $form->handleRequest($request);
@@ -83,7 +83,7 @@ class TestEntController extends AbstractController
     /**
      * @Route("/crud/{id}", name="test_ent_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, TestEnt $testEnt): Response
+    public function delete(Request $request, TestEnt $testEnt)
     {
         if ($this->isCsrfTokenValid('delete'.$testEnt->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
