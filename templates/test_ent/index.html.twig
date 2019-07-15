@@ -3,9 +3,16 @@
 {% block title %}TestEnt index{% endblock %}
 
 {% block body %}
-    <h1>Test CRUD List</h1>
+    <h1>User List</h1>
+    <div class="row mb-2">
+        <div class="col">
+            <a href="{{ path('test_ent_new') }}" class="btn btn-primary" role="button">Create new</a>
+        </div>
+        <div class="col-10">
+         &nbsp;
+        </div>
+    </div>
     <div class="card p-2">
-        <a href="{{ path('test_ent_new') }}" class="btn btn-primary w-25" role="button">Create new</a>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -25,13 +32,15 @@
                         <td>{{ test_ent.email }}</td>
                         <td>{{ test_ent.message }}</td>
                         <td>
-                            <a href="{{ path('test_ent_show', {'id': test_ent.id}) }}">show</a>
-                            <a href="{{ path('test_ent_edit', {'id': test_ent.id}) }}">edit</a>
+                            <a class="btn btn-primary btn-small" href="{{ path('test_ent_show', {'id': test_ent.id}) }}" role="button">Show</a>
+                            <a class="btn btn-success btn-small" href="{{ path('test_ent_edit', {'id': test_ent.id}) }}" role="button">Edit</a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="5">no records found</td>
+                        <td colspan="5">
+                            <div class="alert alert-info" role="alert">no records found!</div>
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
