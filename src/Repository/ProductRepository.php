@@ -42,9 +42,9 @@ class ProductRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param string|null $term
+     * Pagination: Query builder
      */
-    public function getWithSearchQueryBuilder()
+    public function getQueryBuilder()
     {
         $qb = $this->createQueryBuilder('p')
             ->orderBy('p.name', 'DESC')

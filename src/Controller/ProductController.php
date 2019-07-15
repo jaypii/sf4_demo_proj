@@ -22,16 +22,15 @@ class ProductController extends AbstractController
     public function index(ProductRepository $productRepository, Request $request, PaginatorInterface $paginator)
     {
         $q = $request->query->get('q');
-        $queryBuilder = $productRepository->getWithSearchQueryBuilder($q);
+        $queryBuilder = $productRepository->getQueryBuilder($q);
 
         $pagination = $paginator->paginate(
             $queryBuilder, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
-            5/*limit per page*/
+            10/*limit per page*/
         );
 
         return $this->render('product/index.html.twig', [
-            //'products' => $productRepository->findAll(),
             'pagination' => $pagination,
         ]);
     }

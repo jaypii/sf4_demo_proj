@@ -1,18 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Read: {{ title }}{% endblock %}
+{% block title %}Article{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col-md-2">&nbsp;</div>
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-text">{{ articleContent }}</p>
+    <h1>Article</h1>
+
+    <div class="card mt-2 p-2">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card p-2">
+                    <img src="../../{{article.imgUrl}}" alt="testbild" width="100"/>
+                </div>
+                <div class="card mt-2 p-2">
+                    <p>
+                        <strong>Tags</strong>(read from array)
+                    </p>
+                    <ul>
+                        <li>tags</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="card">
+                    {{article.title}}
+                </div>
+                <div class="card">
+                    {{article.atext}}
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-2">&nbsp;</div>
-</div>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
 {% endblock %}
