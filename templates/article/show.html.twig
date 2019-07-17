@@ -4,14 +4,17 @@
 
 {% block body %}
     <h1>Article</h1>
-
     <div class="card mt-2 p-2">
+        <div class="row">
+            <div class="col mb-2">
+                <div class="text-center">
+                    <img src="../../{{article.imgUrl}}" alt="testbild" height="200px"/>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-2">
                 <div class="card p-2">
-                    <img src="../../{{article.imgUrl}}" alt="testbild" width="100"/>
-                </div>
-                <div class="card mt-2 p-2">
                     <p>
                         <strong>Tags</strong>(read from array)
                     </p>
@@ -21,10 +24,10 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <div class="card">
-                    {{article.title}}
+                <div class="card p-1">
+                    <h5>{{article.title}}</h5>
                 </div>
-                <div class="card">
+                <div class="card mt-2 p-1">
                     {{article.atext}}
                 </div>
             </div>

@@ -7,48 +7,54 @@
         <h1 class="display-4">Welcome</h1>
     </div>
 
-    <div class="card">
-        <h5 class="card-header">Featured</h5>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-    </div>
     <div class="row">
         <div class="col">
             <div class="card mt-2">
-                <h5 class="card-header">Twig: Generated List</h5>
+                <h5 class="card-header">Twig Generated List</h5>
                 <div class="card-body">
-                {% for i in 1..10 %}
-                    <div class="{{ cycle(['even', 'odd'], i) }}">
+                <ul class="list-group">
+                {% for i in 1..7 %}
+                    <li class="list-group-item">
                         Test {{i}}
-                    </div>
+                    </li>
                 {% endfor %}
+                </ul>
                 </div>
             </div>   
         </div>
         <div class="col">
             <div class="card mt-2">
-                <img src="img/symfony_black_03.png" class="card-img-top" alt="...">
+                <img src="{{ asset('img/SunsetsRiehen_3.JPG') }}" class="card-img-top" alt="sunset">
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Sunset in Riehen</p>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card mt-2">
+                <h5 class="card-header">Happy Message Generator Service (as Flash)</h5>
                 <div class="card-body">
                     {# read and display all flash messages #}
                     {% for label, messages in app.flashes %}
                         {% for message in messages %}
-                            <div class="alert alert-info">
-                                {{ message }}
+                            <div class="alert alert-success">
+                                <p class="text-center">{{ message }}</p>
                             </div>
                         {% endfor %}
                     {% endfor %}
                 </div>
             </div>   
         </div>
-        <div class="col">&nbsp;</div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header">Json Data View</h5>
+                <div class="card-body">
+                    <p class="card-text"><strong>Using Data Service to get countries table as json</strong></p>
+                    {{ data | json_encode() }}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

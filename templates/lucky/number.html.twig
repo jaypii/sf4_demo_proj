@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="card">
+    <div class="card mb-2">
+        <h5 class="card-header">
+            Lucky Number
+            <small class="text-muted">(Simple Service)</small></h5>
         <div class="card-body">
-            <h2>Your lucky number is {{ number }}</h2>
+            <h3>Your lucky number is <span class="text-danger">{{ number }}</span></h3>
         </div>
     </div>
+
+    <a class="btn btn-primary btn-sm" href="{{ path('lucky') }}" role="button">Set max to Default</a>
+    <a class="btn btn-primary btn-sm" href="{{ path('lucky', {'max': 500}) }}" role="button">Set max to 500</a>
+
+
 {% endblock %}
