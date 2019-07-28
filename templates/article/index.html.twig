@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Articles-List{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
-
-    <table class="table">
+    <h1>Article List</h1>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>
@@ -13,7 +12,6 @@
                 </th>
                 <th>Title</th>
                 <th>Content</th>
-                <th>Tags</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
@@ -22,18 +20,18 @@
             <tr>
                 <td><img src="../../{{ article.imgURL }}" width="20px"/></td>
                 <td>{{ article.title }}</td>
-                
-                <td>{{ article.atext }}</td>
-                <td>{{ article.tags ? article.tags|join(', ') : '' }}</td>
+                <td>{{ article.atext| truncate(30) }}</td>
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}"><span class="oi oi-grid-two-up"></span>&nbsp;</a>
                     <a href="{{ path('article_edit', {'id': article.id}) }}"><span class="oi oi-pencil"></span>&nbsp;</a>
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+               <tr>
+                    <td colspan="5">
+                        <div class="alert alert-info" role="alert">no records found!</div>
+                    </td>
+                </tr>
         {% endfor %}
         </tbody>
     </table> 

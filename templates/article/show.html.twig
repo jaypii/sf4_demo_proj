@@ -1,9 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article{% endblock %}
+{% block title %}Article-Show{% endblock %}
 
 {% block body %}
     <h1>Article</h1>
+    <div class="d-flex flex-row bd-highlight mb-2">
+        <div class="p-1 bd-highlight">
+            <a href="{{ path('article_index') }}" class="btn btn-primary btn-sm" role="button">
+                <span class="oi oi-list" title="Back to List" aria-hidden="true"></span>
+            </a>   
+        </div>
+        <div class="p-1 bd-highlight">
+            <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-success btn-sm" role="button">
+                <span class="oi oi-pencil" title="Edit" aria-hidden="true"></span>
+            </a>    
+        </div>
+        <div class="p-1 bd-highlight">
+            {{ include('article/_delete_form.html.twig') }}
+        </div>
+    </div>
+
     <div class="card mt-2 p-2">
         <div class="row">
             <div class="col mb-2">
@@ -18,8 +34,10 @@
                     <p>
                         <strong>Tags</strong>(read from array)
                     </p>
-                    <ul>
-                        <li>tags</li>
+                    <ul class="list-unstyled">
+                        {% for i in article.tags %}
+                            <li><span class="badge badge-info">{{i}}</span></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -33,10 +51,4 @@
             </div>
         </div>
     </div>
-
-    <a href="{{ path('article_index') }}">back to list</a>
-
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-
-    {{ include('article/_delete_form.html.twig') }}
 {% endblock %}
