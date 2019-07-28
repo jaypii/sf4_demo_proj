@@ -6,7 +6,7 @@
     <h1>User List</h1>
     <div class="row mb-2">
         <div class="col">
-            <a href="{{ path('test_ent_new') }}" class="btn btn-primary" role="button">Create new</a>
+            <a href="{{ path('test_ent_new') }}" class="btn btn-primary" role="button"> + </a>
         </div>
         <div class="col-10">
          &nbsp;
@@ -30,10 +30,10 @@
                         <td>{{ test_ent.id }}</td>
                         <td>{{ test_ent.name }}</td>
                         <td>{{ test_ent.email }}</td>
-                        <td>{{ test_ent.message }}</td>
+                        <td>{{ test_ent.message|truncate(30)  }}</td>
                         <td>
-                            <a class="btn btn-primary btn-small" href="{{ path('test_ent_show', {'id': test_ent.id}) }}" role="button">Show</a>
-                            <a class="btn btn-success btn-small" href="{{ path('test_ent_edit', {'id': test_ent.id}) }}" role="button">Edit</a>
+                            <a class="btn btn-primary btn-sm" href="{{ path('test_ent_show', {'id': test_ent.id}) }}" role="button"><span class="oi oi-grid-two-up"></span></a>
+                            <a class="btn btn-success btn-sm" href="{{ path('test_ent_edit', {'id': test_ent.id}) }}" role="button"><span class="oi oi-pencil"></span></a>
                         </td>
                     </tr>
                 {% else %}

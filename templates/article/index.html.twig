@@ -8,7 +8,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>&nbsp;</th>
+                <th>
+                    <a href="{{ path('article_new') }}"><span class="oi oi-medical-cross"></span> Create</a>
+                </th>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Tags</th>
@@ -24,8 +26,8 @@
                 <td>{{ article.atext }}</td>
                 <td>{{ article.tags ? article.tags|join(', ') : '' }}</td>
                 <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    <a href="{{ path('article_show', {'id': article.id}) }}"><span class="oi oi-grid-two-up"></span>&nbsp;</a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}"><span class="oi oi-pencil"></span>&nbsp;</a>
                 </td>
             </tr>
         {% else %}
@@ -34,7 +36,5 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
-    <a href="{{ path('article_new') }}">Create new</a>
+    </table> 
 {% endblock %}

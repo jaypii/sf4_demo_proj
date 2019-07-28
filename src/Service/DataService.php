@@ -19,7 +19,9 @@ class DataService
     public function findAll() {
 
         $queryBuilder = $this->conn->createQueryBuilder();
-        $queryBuilder->select('*')->from('countries');
+        $queryBuilder->select('*')
+            ->from('countries')
+            ->setMaxResults(20);
 
         $data = $queryBuilder->execute()->fetchAll();
 

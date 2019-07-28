@@ -26,8 +26,8 @@
                 <td> $ {{ product.price }}</td>
                 <td>{{ product.description }}</td>
                 <td>
-                    <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('product_show', {'id': product.id}) }}"><span class="oi oi-grid-two-up"></span>&nbsp;</a>
+                    <a href="{{ path('product_edit', {'id': product.id}) }}"><span class="oi oi-pencil"></span>&nbsp;</a>
                 </td>
             </tr>
         {% else %}
