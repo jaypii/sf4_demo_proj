@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th>
-                    <a href="{{ path('article_new') }}"><span class="oi oi-medical-cross"></span> Create</a>
+                    <a class="btn btn-primary btn-sm" href="{{ path('article_new') }}" role="button"><span class="oi oi-medical-cross"></span> Create</a>
                 </th>
                 <th>Title</th>
                 <th>Content</th>
@@ -22,8 +22,8 @@
                 <td>{{ article.title }}</td>
                 <td>{{ article.atext| truncate(30) }}</td>
                 <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}"><span class="oi oi-grid-two-up"></span>&nbsp;</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}"><span class="oi oi-pencil"></span>&nbsp;</a>
+                    <a class="btn btn-primary btn-sm" href="{{ path('article_show', {'id': article.id}) }}" role="button"><span class="oi oi-grid-two-up"></span></a>&nbsp;
+                    <a class="btn btn-success btn-sm"href="{{ path('article_edit', {'id': article.id}) }}" role="button"><span class="oi oi-pencil"></span></a>
                 </td>
             </tr>
         {% else %}
